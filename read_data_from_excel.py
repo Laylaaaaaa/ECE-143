@@ -27,8 +27,6 @@ def read_data_from_excel(file_path='/Users/shawnwinston/Desktop/ece_143/Train_re
         #these are the categories
         # ['Id', 'Title', 'FullDescription', 'LocationRaw', 'LocationNormalized', 'ContractType', 'ContractTime', 'Company', 'Category', 'SalaryRaw', 'SalaryNormalized', 'SourceName\r\n']
 
-        print header
-
         i=0
         for name in header:
             headers[name] = i
@@ -43,8 +41,6 @@ def read_data_from_excel(file_path='/Users/shawnwinston/Desktop/ece_143/Train_re
 
     #Can access each feature by name instead of number using below syntax
     #print features[0][categories['Id']]
-
-    #return features,salaries,categories
 
 
 def visualize_salary_data(x_values, y_values, data):
