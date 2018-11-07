@@ -1,6 +1,7 @@
-import numpy as np
 import shlex
 import csv
+
+features, salaries=[], []
 
 def read_data_from_excel(file_path='/Users/shawnwinston/Desktop/ece_143/Train_rev1_salaries.csv'):
     '''
@@ -22,12 +23,37 @@ def read_data_from_excel(file_path='/Users/shawnwinston/Desktop/ece_143/Train_re
         data_csv = csv.reader(data)
 
         header = data.readline()
+        print header
         lines = [x for x in data_csv]
 
-        features, salaries=[], []
         for l in lines:
             features.append(l[0:9]+[l[11]])
             salaries.append(float(l[10]))
     print "done"
+    return features,salaries
+
+
+def salary_per_job_category():
+    '''
+    visualizes the average salary for each job title
+    output: chart of average salary for job title
+    '''
+
+    #assert
+    #features, salaries = read_data_from_excel()
+    print features[0]
+
+def salary_per_company():
+    pass
+
+def salary_per_location():
+    pass
+
+def job_titles():
+    pass
+
+def average_salary():
+    pass
 
 read_data_from_excel()
+salary_per_job_category()
