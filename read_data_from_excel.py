@@ -1,4 +1,3 @@
-import shlex
 import csv
 
 features, salaries=[], []
@@ -37,6 +36,7 @@ def read_data_from_excel(file_path='/Users/shawnwinston/Desktop/ece_143/Train_re
         for l in lines:
             features.append(l[0:9]+[l[11]])
             salaries.append(float(l[10]))
+
     print "done"
 
     #Can access each feature by name instead of number using below syntax
@@ -66,6 +66,7 @@ def salary_per_category(category_name):
     '''
 
     from collections import defaultdict
+    import operator
 
     assert isinstance(category_name, str)
     assert category_name in headers
@@ -78,31 +79,49 @@ def salary_per_category(category_name):
     for i in range(len(salaries)):
         category_salaries[features[i][headers[category_name]]].append(salaries[i])
 
+    sorted_category_salaries = sorted(category_salaries.items(), key=lambda x: len(x[1]), reverse=True)
+
+    #print number of listings in each category for top 20
+    for i in range(20):
+        print sorted_category_salaries[i][0], len(sorted_category_salaries[i][1])
+
     #Calculate average and max salary for each category value
     for key in category_salaries.keys():
-        average_category_salaries[key] = sum(category_salaries[key])/len(category_salaries[key])
+        #print key, len(category_salaries[key])
+        if len(category_salaries[key]) > 4:
+            average_category_salaries[key] = sum(category_salaries[key])/len(category_salaries[key])
         max_category_salary[key] = max(category_salaries[key])
 
     #print average_category_salaries
     #print max_category_salary
+
+    sorted_average_category_salaries = sorted(average_category_salaries.items(), key=lambda x: x[1])
+    sorted_max_category_salaries = sorted(max_category_salary.items(), key=lambda x: x[1])
+
+    print sorted_average_category_salaries[-5:]
+    print sorted_max_category_salaries[-5:]
 
     #all categories in dataset
     #print category_salaries.keys()
 
     return average_category_salaries, max_category_salary
 
-def job_titles():
-    pass
 
 #average salary of all jobs
 def average_salary():
+    print sum(salaries)/len(salaries)
+
+
+def predict_company_category():
     pass
+
 
 
 ####### MAIN LOOP ########
 
 read_data_from_excel()
 salary_per_category('Category')
+average_salary()
 
 #maybe find job Titles with the top salaries
 header_truncated = ['Title', 'LocationNormalized', 'Company', 'Category']
