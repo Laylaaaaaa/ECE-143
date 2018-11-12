@@ -61,8 +61,8 @@ def salary_per_category(category_name):
 
     input: the category name you wish to see salary data for ex: location, company, job title, etc.
 
-    output: average_catergory_salary - dictonary that stores the average salary data per category values
-            max_catergory_salary - dictonary that stores the max salary data per category values
+    output: average_category_salary - dictonary that stores the average salary data per category values
+            max_category_salary - dictonary that stores the max salary data per category values
     '''
 
     from collections import defaultdict
@@ -109,19 +109,59 @@ def salary_per_category(category_name):
 
 #average salary of all jobs
 def average_salary():
+    '''
+
+    :return: average salary of all jobs in dataset
+    '''
+
     print sum(salaries)/len(salaries)
 
 
-def predict_company_category():
-    pass
+def predict_company_category(n):
+    '''
+    predicts the type of company based off of the category of job listings
+    :param n: number of companies in dataset that we want to predict for
+    :return: dictonary of companies and their predicted category
+    '''
 
+    from collections import defaultdict
 
+    assert isinstance(n,int)
+    assert n > 0
+
+    companies = defaultdict(list)
+    predictions = {}
+
+    # create dictonary of lists that stores all the salary values for each category value
+    for i in range(len(salaries)):
+        companies[features[i][headers['Company']]].append(features[i][headers['Category']])
+
+    sorted_company_category = sorted(companies.items(), key=lambda x: len(x[1]), reverse=True)
+    top_company_category = dict(sorted_company_category[1:n])
+
+    #adds up all the categories for a specific and determines which category has the most and predicts that as
+    #the category for the company
+    for key in top_company_category.keys() :
+        category_dict = {}
+        for cat in top_company_category[key]:
+            if cat in category_dict.keys():
+                category_dict[cat] += 1
+
+            else:
+                category_dict[cat] = 0
+
+        #print max(category_dict, key=category_dict.get)
+        predictions[key] = max(category_dict, key=category_dict.get)
+
+    #print predictions
+    return predictions
 
 ####### MAIN LOOP ########
 
 read_data_from_excel()
 salary_per_category('Category')
 average_salary()
+predictions = predict_company_category(20)
 
 #maybe find job Titles with the top salaries
 header_truncated = ['Title', 'LocationNormalized', 'Company', 'Category']
