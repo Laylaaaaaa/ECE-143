@@ -43,17 +43,47 @@ def read_data_from_excel(file_path='/Users/shawnwinston/Desktop/ece_143/Train_re
     #print features[0][categories['Id']]
 
 
-def visualize_salary_data(x_values, y_values, data):
+def visualize_data(x_label, y_label, title, data):
     '''
-    Makes a chart and visualizes the salary data that is passed to it
+    Makes a bar chart and visualizes the job data that is passed to it
 
+    :param x_label: str to put on x_axis
+    :param y_label: str to put on y_axis
+    :param title: str to put as title
+    :param data: data to display on graph
 
-    :param x_values:
-    :param y_values:
-    :param data:
-    :return:
     '''
-    pass
+
+    import numpy as np
+
+    assert isinstance(data, dict)
+    assert isinstance(x_label,str)
+    assert isinstance(y_label,str)
+    assert isinstance(title,str)
+
+    import matplotlib.pyplot as plt
+
+    my_colors = [(0.2, 0.4, 0.5), (0.2, 0.75, 0.25)]
+    width=0.5
+
+    sorted_data = sorted(data.items(), key=lambda x: x[1], reverse=True)
+    unzipped_sorted_data = zip(*sorted_data)
+
+    plt.figure(figsize=(12,8))
+    indices = np.arange(len(data.keys()))
+    fig = plt.bar(indices, unzipped_sorted_data[1], width, color=my_colors)
+    plt.xticks(indices, unzipped_sorted_data[0], rotation='vertical')
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.title(title)
+
+    #put label above each bar on chart
+    rects = fig.patches
+    for rect,label in zip(rects,unzipped_sorted_data[1]):
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width()/2, height+5, label, ha='center', va='bottom')
+    plt.show()
+
 
 def salary_per_category(category_name):
     '''
@@ -74,6 +104,7 @@ def salary_per_category(category_name):
     category_salaries = defaultdict(list)
     average_category_salaries = {}
     max_category_salary = {}
+    top_20 = {}
 
     #create dictonary of lists that stores all the salary values for each category value
     for i in range(len(salaries)):
@@ -83,7 +114,8 @@ def salary_per_category(category_name):
 
     #print number of listings in each category for top 20
     for i in range(20):
-        print sorted_category_salaries[i][0], len(sorted_category_salaries[i][1])
+        top_20[sorted_category_salaries[i][0]] = len(sorted_category_salaries[i][1])
+        #print sorted_category_salaries[i][0], len(sorted_category_salaries[i][1])
 
     #Calculate average and max salary for each category value
     for key in category_salaries.keys():
@@ -104,7 +136,8 @@ def salary_per_category(category_name):
     #all categories in dataset
     #print category_salaries.keys()
 
-    return average_category_salaries, max_category_salary
+    print top_20
+    return average_category_salaries, max_category_salary, top_20
 
 
 #average salary of all jobs
@@ -159,14 +192,15 @@ def predict_company_category(n):
 ####### MAIN LOOP ########
 
 read_data_from_excel()
-salary_per_category('Category')
+avg_salary_dict, max_salary_dict, top_20 = salary_per_category('Category')
 average_salary()
 predictions = predict_company_category(20)
+visualize_data('Category of Job', "Number of Job Listings", "Number of Job Listings Per Category", top_20)
 
 #maybe find job Titles with the top salaries
 header_truncated = ['Title', 'LocationNormalized', 'Company', 'Category']
 #for name in header_truncated:
-#    avg_salary_dict, max_salary_dict = salary_per_category(name)
+#    avg_salary_dict, max_salary_dict, top_20 = salary_per_category(name)
 #    visualize_salary_data() #visual average salary data
 #    visualize_salary_data() #visualize max salary data
 
