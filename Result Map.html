@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -18,13 +17,13 @@
     <div id="map"></div>
     <script>
       function initMap() {       
-	    var myLatLng = [{lat: 54.834857, lng: -2.671292},{lat: 51.506415, lng: -0.128021},{lat: 51.507618, lng: -0.127724},{lat: 51.512370, lng: -0.091484},{lat: 53.485590, lng: -2.242655},{lat: 53.811122, lng: -1.545332},{lat: 52.484829, lng: -1.890396},{lat: 51.508405, lng:  -0.128215},{lat: 52.475329, lng: -1.827493},{lat: 51.314675, lng: -0.560152},{lat: 51.454447, lng:  -0.976731},{lat: 51.453341, lng: -2.583213},{lat: 52.952937, lng: -1.154957},{lat: 52.953767, lng: -1.157702},{lat: 53.382405, lng:  -1.465173},{lat: 57.153939, lng: -2.094458},{lat: 51.058073, lng: -1.309308},{lat: 54.60574, lng: -5.929420},{lat: 51.463572, lng: -0.267969},{lat: 52.042096, lng: -0.759531},{lat: 51.467032, lng: 51.467032},];
-		var info = [{"Location":"UK","AverS":39,"JobCat":"IT Jobs"},{"Location":"London???","AverS":39.,"JobCat":"IT Jobs"},{"Location":"South East London","AverS":39.,"JobCat":"IT Jobs"},{"Location":"The City","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Manchester","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Leeds","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Birmingham","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Central London","AverS":39.,"JobCat":"IT Jobs"},{"Location":"West Midlands","AverS":39.,"JobCat":"Teaching Jobs"},{"Location":"Surrey","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Reading","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Bristol","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Nottingham","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Sheffield","AverS":39.,"JobCat":"Engineering Jobs"},{"Location":"Aberdeen","AverS":39.,"JobCat":"Engineering Jobs"},{"Location":"Hampshire","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Belfast","AverS":39.,"JobCat":"HR & Recruitment Jobs"},{"Location":"East Sheen","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Milton Keynes","AverS":39.,"JobCat":"IT Jobs"},{"Location":"Berkshire","AverS":39.,"JobCat":"IT Jobs"},]
+	    var myLatLng = [{lat: 54.834857, lng: -2.671292},{lat: 51.506415, lng: -0.128021},{lat: 51.467884, lng: -0.035872},{lat: 51.512370, lng: -0.091484},{lat: 53.485590, lng: -2.242655},{lat: 53.811122, lng: -1.545332},{lat: 52.484829, lng: -1.890396},{lat: 51.508405, lng:  -0.128215},{lat: 52.475329, lng: -1.827493},{lat: 51.314675, lng: -0.560152},{lat: 51.454447, lng:  -0.976731},{lat: 51.453341, lng: -2.583213},{lat: 52.952937, lng: -1.154957},{lat: 53.382405, lng:  -1.465173},{lat: 57.153939, lng: -2.094458},{lat: 51.058073, lng: -1.309308},{lat: 54.60574, lng: -5.929420},{lat: 51.463572, lng: -0.267969},{lat: 52.042096, lng: -0.759531},{lat: 51.466976, lng: -1.182928},];
+		var info = [{"Location":"UK","AverS":34113,"JobCat":"IT Jobs","numJob":41093},{"Location":"London","AverS":43429,"JobCat":"IT Jobs","numJob":30522},{"Location":"South East London","AverS":41530,"JobCat":"IT Jobs","numJob":11713},{"Location":"The City","AverS":46528,"JobCat":"IT Jobs","numJob":6678},{"Location":"Manchester","AverS":301103,"JobCat":"IT Jobs","numJob":3516},{"Location":"Leeds","AverS":28934,"JobCat":"IT Jobs","numJob":3401},{"Location":"Birmingham","AverS":31103,"JobCat":"IT Jobs","numJob":3061},{"Location":"Central London","AverS":43407,"JobCat":"IT Jobs","numJob":2607},{"Location":"West Midlands","AverS":36319,"JobCat":"Teaching Jobs","numJob":2540},{"Location":"Surrey","AverS":38520,"JobCat":"IT Jobs","numJob":2397},{"Location":"Reading","AverS":34878,"JobCat":"IT Jobs","numJob":2187},{"Location":"Bristol","AverS":33481,"JobCat":"IT Jobs","numJob":2085},{"Location":"Nottingham","AverS":28831,"JobCat":"IT Jobs","numJob":1873},{"Location":"Sheffield","AverS":26476,"JobCat":"Engineering Jobs","numJob":1766},{"Location":"Aberdeen","AverS":41175,"JobCat":"Engineering Jobs","numJob":1634},{"Location":"Hampshire(Winchester)","AverS":38129,"JobCat":"IT Jobs","numJob":1557},{"Location":"Belfast","AverS":29586,"JobCat":"HR & Recruitment Jobs","numJob":1537},{"Location":"East Sheen","AverS":35441,"JobCat":"IT Jobs","numJob":1531},{"Location":"Milton Keynes","AverS":32166,"JobCat":"IT Jobs","numJob":1523},{"Location":"Berkshire","AverS":39639,"JobCat":"IT Jobs","numJob":1502},]
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: myLatLng[0]
         });
-        //´´½¨marker
+        //创建marker
 		var contentString = new Array();
 		var marker = new Array();
 		var infowindow;
@@ -36,7 +35,8 @@
 		'<h1>' + info[i].Location +'</h1>' +
 		'<div id="bodyContent">' +
 		'<li style="line-height: 26px;font-size: 20px;">' + 'Average salary: ' + info[i].AverS +'<br>' + '</li>' +
-		'<li style="line-height: 26px;font-size: 20px;">' + 'The most common job category: ' + info[i].JobCat +'<br>' + '</li>' +	
+		'<li style="line-height: 26px;font-size: 20px;">' + 'The most common job category: ' + info[i].JobCat +'<br>' + '</li>' +
+		'<li style="line-height: 26px;font-size: 20px;">' + 'The number of job: ' + info[i].numJob +'<br>' + '</li>' +
 		'</div>' +
 		'</div>';
 		//infowindow[i] = new google.maps.InfoWindow({content: contentString[i]});
