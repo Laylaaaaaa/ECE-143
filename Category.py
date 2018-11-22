@@ -71,10 +71,19 @@ def Read_data_Generate_JobCategory():
 
 
     # figure: job category_vs location
+    font1 = {'family': 'Times New Roman',
+             'weight': 'normal',
+             'size': 20, }
+    font2 = {'family': 'Times New Roman',
+             'weight': 'normal',
+             'size': 25,}
     location_list = sorted(location_dict.items(), key = lambda item : len(item[1]), reverse=True)
     indexes = range(len(location_dict))
     labels = list()
     values = list()
+    font2 = {'family': 'Times New Roman',
+             'weight': 'normal',
+             'size': 30,}
     for key in location_list:
         labels.append(key[0])
         values.append(len(key[1]))
@@ -83,9 +92,9 @@ def Read_data_Generate_JobCategory():
     plt.figure(figsize=(15, 10))
     fig = plt.bar(indexes, values, width, color=my_colors)
     plt.xticks(indexes, labels, rotation='vertical')
-    plt.xlabel("Location")
-    plt.ylabel("The number of Job Category")
-    plt.title("The number of job category of location")
+    plt.xlabel("Location",font1)
+    plt.ylabel("The number of Job Category",font1)
+    plt.title("The number of job category of location",font2)
     for b in fig:
         h = b.get_height()
         plt.text(b.get_x() + b.get_width()/2, h, '%d'%int(h), ha='center', va='bottom')
@@ -104,9 +113,9 @@ def Read_data_Generate_JobCategory():
     plt.figure(figsize=(15, 10))
     fig = plt.bar(indexes, values, width, color=my_colors)
     plt.xticks(indexes, labels, rotation='vertical')
-    plt.xlabel("Company")
-    plt.ylabel("The number of Job Category")
-    plt.title("The number of job category of company")
+    plt.xlabel("Company",font1)
+    plt.ylabel("The number of Job Category",font1)
+    plt.title("The number of job category of company",font2)
     for b in fig:
         h = b.get_height()
         plt.text(b.get_x() + b.get_width()/2, h, '%d'%int(h), ha='center', va='bottom')
