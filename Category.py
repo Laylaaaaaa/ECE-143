@@ -13,7 +13,7 @@ def Read_data_Generate_JobCategory():
                      'West Midlands': dict(), 'Surrey': dict(), 'Reading': dict(), 'Bristol': dict(),
                      'Nottingham': dict(), 'Sheffield': dict(), 'Aberdeen': dict(), 'Hampshire': dict(),
                      'Belfast': dict(), 'East Sheen': dict(), 'Milton Keynes': dict(), 'Berkshire': dict()}
-    # Top 20 companys
+    # Top 20 companies
     company_dict = {'UKStaffsearch': dict(), 'CVbrowser': dict(), 'London4Jobs': dict(), 'Hays': dict(),
                     'JAM Recruitment Ltd': dict(), 'Office Angels': dict(), 'Jobsite Jobs': dict(),
                     'Perfect Placement': dict(), 'ARRAY': dict(), 'JOBG8': dict(), 'Matchtech Group plc.': dict(),
@@ -71,33 +71,27 @@ def Read_data_Generate_JobCategory():
 
 
     # figure: job category_vs location
-    font1 = {'family': 'Times New Roman',
-             'weight': 'normal',
-             'size': 20, }
-    font2 = {'family': 'Times New Roman',
-             'weight': 'normal',
-             'size': 25,}
     location_list = sorted(location_dict.items(), key = lambda item : len(item[1]), reverse=True)
     indexes = range(len(location_dict))
     labels = list()
     values = list()
+    font1 = {'family': 'Times New Roman',
+             'weight': 'normal',
+             'size': 20,
+             }
     font2 = {'family': 'Times New Roman',
              'weight': 'normal',
-             'size': 30,}
+             'size': 25,}
     for key in location_list:
         labels.append(key[0])
         values.append(len(key[1]))
-    width = 0.5
+    width = 0.7
     my_colors = ['lightskyblue', 'yellowgreen']
     plt.figure(figsize=(15, 10))
-    fig = plt.bar(indexes, values, width, color=my_colors)
-    plt.xticks(indexes, labels, rotation='vertical')
-    plt.xlabel("Location",font1)
-    plt.ylabel("The number of Job Category",font1)
+    fig = plt.barh(labels, values, width, color=my_colors)
+    plt.ylabel("Location",font1)
+    plt.xlabel("The number of Job Category",font1)
     plt.title("The number of job category of location",font2)
-    for b in fig:
-        h = b.get_height()
-        plt.text(b.get_x() + b.get_width()/2, h, '%d'%int(h), ha='center', va='bottom')
     plt.show()
 
     # figure: job category vs company
@@ -108,18 +102,11 @@ def Read_data_Generate_JobCategory():
     for key in company_list:
         labels.append(key[0])
         values.append(len(key[1]))
-    width = 0.5
+    width = 0.7
     my_colors = ['lightskyblue', 'yellowgreen']
     plt.figure(figsize=(15, 10))
-    fig = plt.bar(indexes, values, width, color=my_colors)
-    plt.xticks(indexes, labels, rotation='vertical')
-    plt.xlabel("Company",font1)
-    plt.ylabel("The number of Job Category",font1)
+    fig = plt.barh(labels, values, width, color=my_colors)
+    plt.ylabel("Company",font1)
+    plt.xlabel("The number of Job Category",font1)
     plt.title("The number of job category of company",font2)
-    for b in fig:
-        h = b.get_height()
-        plt.text(b.get_x() + b.get_width()/2, h, '%d'%int(h), ha='center', va='bottom')
     plt.show()
-
-
-Read_data_Generate_JobCategory()
