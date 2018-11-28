@@ -23,7 +23,6 @@
           zoom: 4,
           center: myLatLng[0]
         });
-        //创建marker
 		var contentString = new Array();
 		var marker = new Array();
 		var infowindow;
@@ -39,8 +38,6 @@
 		'<li style="line-height: 26px;font-size: 20px;">' + 'The number of job: ' + info[i].numJob +'<br>' + '</li>' +
 		'</div>' +
 		'</div>';
-		//infowindow[i] = new google.maps.InfoWindow({content: contentString[i]});
-		//google.maps.event.addListener(marker[i], 'click', function () {infowindow.open(map, marker[i]);});
 		}
 		infowindow = new google.maps.InfoWindow({content: contentString[0]});
 		google.maps.event.addListener(marker[0], 'click', function () {infowindow.open(map, marker[0]);});
