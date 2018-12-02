@@ -1,10 +1,10 @@
 # Description
 This is UCSD ECE143 final project develeped by Group 3.<br>
 We use Kaggle [Job Salary Prediction](https://www.kaggle.com/c/job-salary-prediction/data) and try to aplly what we learn during the class.
-## Database
-The dataset contains 200 thousand more data points with heads:Id, Title, FullDescription, LocationRaw, LocationNormalized, ContractType, ContractTime, Company, Category and SourceName.
+# Database
+The dataset contains 200 thousand more data points with heads: Id, Title, FullDescription, LocationRaw, LocationNormalized, ContractType, ContractTime, Company, Category and SourceName.
 
-## Requirements
+# Requirements
 1. Packages
    -Please install following packages:
     -plotly
@@ -12,7 +12,7 @@ The dataset contains 200 thousand more data points with heads:Id, Title, FullDes
     -wordcloud
 2.
     
-## Functions and code description:
+# Functions and code description:
   
 -color_map_AverageSalary.py:
     Read data from "Train_rev1.csv" and classify salary by locations.
