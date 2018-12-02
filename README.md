@@ -6,10 +6,10 @@ The dataset contains 200 thousand more data points with heads: Id, Title, FullDe
 
 # Requirements
 1. Packages
-   -Please install following packages:
-    -plotly
-    -pyecharts
-    -wordcloud
+   - Please install following packages:
+    - plotly
+    - pyecharts
+    - wordcloud
 2.
     
 # Functions and code description:
