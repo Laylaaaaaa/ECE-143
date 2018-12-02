@@ -14,16 +14,16 @@ The dataset contains 200 thousand more data points with heads: Id, Title, FullDe
     
 # Functions and code description:
   
-- color_map_AverageSalary.py:
+- color_map_AverageSalary.py:<br>
     Read data from "Train_rev1.csv" and classify salary by locations.
     Generate UK map and color this map by average salary of locations.
     Should install csv, matplotlib, Numpy and BaseMap in Python.
 
-- color_map_NumOfJob.py:
+- color_map_NumOfJob.py:<br>
     Read data from Train_rev1.csv and count number of job of locations.
     Generate UK map and color map by number of job of locations.
     Should install csv, matplotlib, Numpy and BaseMap in Python.
   
-- Result Map.html:
+- Result Map.html:<br>
     It is based on Google map API and generates a dynamic map about job information of a location.
     Information includes average salary, the most common job category and the number of jobs of a location.
