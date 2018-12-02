@@ -12,7 +12,7 @@ The dataset contains 200 thousand more data points with heads: Id, Title, FullDe
     - wordcloud
 2.
     
-# Functions and code description:
+# Functions and code descriptions:
   
 - color_map_AverageSalary.py:<br>
     Read data from "Train_rev1.csv" and classify salary by locations.
