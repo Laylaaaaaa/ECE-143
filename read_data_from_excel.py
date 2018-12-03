@@ -192,7 +192,8 @@ def predict_company_category(n):
 ####### MAIN LOOP ########
 
 read_data_from_excel()
-avg_salary_dict, max_salary_dict, top_20 = salary_per_category('Category')
+avg_salary_dict, max_salary_dict, top_20 = salary_per_category('Company')
+
 average_salary()
 predictions = predict_company_category(20)
 visualize_data('Category of Job', "Number of Job Listings", "Number of Job Listings Per Category", top_20)
@@ -203,4 +204,3 @@ header_truncated = ['Title', 'LocationNormalized', 'Company', 'Category']
 #    avg_salary_dict, max_salary_dict, top_20 = salary_per_category(name)
 #    visualize_salary_data() #visual average salary data
 #    visualize_salary_data() #visualize max salary data
-

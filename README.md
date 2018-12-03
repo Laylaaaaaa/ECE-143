@@ -1,8 +1,8 @@
 # Description
-This is UCSD ECE143 final project develeped by Group 3.<br>
-We use Kaggle [Job Salary Prediction](https://www.kaggle.com/c/job-salary-prediction/data) and try to aplly what we learn during the class.
+This is UCSD ECE143 final project created by Group 3.<br>
+We used the Kaggle [Job Salary Prediction](https://www.kaggle.com/c/job-salary-prediction/data) dataset and applied what we learn during the class.
 # Database
-The dataset contains 200 thousand more data points with heads: Id, Title, FullDescription, LocationRaw, LocationNormalized, ContractType, ContractTime, Company, Category and SourceName.
+The dataset contains over 200,000 data points with features: Id, Title, FullDescription, LocationRaw, LocationNormalized, ContractType, ContractTime, Company, Category and SourceName.
 
 # Requirements
 1. Packages
@@ -27,3 +27,9 @@ The dataset contains 200 thousand more data points with heads: Id, Title, FullDe
 - Result Map.html:<br>
     It is based on Google map API and generates a dynamic map about job information of a location.
     Information includes average salary, the most common job category and the number of jobs of a location.
+
+- read_data_from_excel.py:<br>
+    Read data from Train_rev1.csv and determines the overall statistics of the dataset. It gets the average
+    and max salary per category and also determines the average salary across the entire dataset. This module
+    also predicts the type of company based off the number of job category listings that there are.
+    Generates a bar chart of the number of job listing per each category of job
