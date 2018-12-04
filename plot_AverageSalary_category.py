@@ -1,9 +1,7 @@
-import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
-from matplotlib.colors import LinearSegmentedColormap
 from matplotlib import cm
-import matplotlib
 from matplotlib.cm import ScalarMappable
 
 ctg1=['Customer Services', 'Admin', 'Hospitality & Catering', 'Travel', 'Manufacturing', 'Logistics & Warehouse', 'Teaching', 'Sales', 'Social work', 'HR & Recruitment', 'Healthcare & Nursing', 'Retail', 'Other/General', 'PR, Advertising & Marketing', 'Engineering', 'Trade & Construction', 'Consultancy', 'Accounting & Finance', 'Legal', 'IT']
