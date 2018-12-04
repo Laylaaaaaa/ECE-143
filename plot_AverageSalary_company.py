@@ -1,9 +1,7 @@
-import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
-from matplotlib.colors import LinearSegmentedColormap
 from matplotlib import cm
-import matplotlib
 from matplotlib.cm import ScalarMappable
 
 cpn1=['Office Angels', 'Page Personnel Finance', 'Adecco', 'Adecco Group', 'Perfect Placement', 'Penguin Recruitment', 'ARRAY', 'Hays', 'CVbrowser', 'COREcruitment International', 'UKStaffsearch', 'Randstad', 'Jobsite Jobs', 'London4Jobs', 'BMS Sales Specialists LLP', 'Michael Page Finance', 'JAM Recruitment Ltd', 'JOBG8', 'Matchtech Group plc.']
