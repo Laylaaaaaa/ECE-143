@@ -42,9 +42,9 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
     Should install csv, matplotlib, numpy and pandas.
     
 - plot_AverageSalary_category.py<br>
-    Plot bar chat with average salary for each category.
+    Plot bar chart with average salary for each category.
     Should install matplotlib, seaborn.
     
 - plot_AverageSalary_company.py<br>
-    Plot bar chat with average salary for each company.
+    Plot bar chart with average salary for each company.
     Should install matplotlib, seaborn.
