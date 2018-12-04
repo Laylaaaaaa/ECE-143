@@ -10,6 +10,8 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
     - plotly
     - pyecharts
     - wordcloud
+    - seaborn
+    - pandas
 2.
     
 # Functions and code descriptions:
@@ -33,3 +35,16 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
     and max salary per category and also determines the average salary across the entire dataset. This module
     also predicts the type of company based off the number of job category listings that there are.
     Generates a bar chart of the number of job listing per each category of job
+    
+- Average Salary_category_company_location.py:<br>
+    Read data from Train_rev1.csv with distinct keys.(company/category/location)
+    It calculates average salary for each company/category/location.
+    Should install csv, matplotlib, numpy and pandas.
+    
+- plot_AverageSalary_category.py<br>
+    Plot bar chat with average salary for each category.
+    Should install matplotlib, seaborn.
+    
+- plot_AverageSalary_company.py<br>
+    Plot bar chat with average salary for each company.
+    Should install matplotlib, seaborn.
