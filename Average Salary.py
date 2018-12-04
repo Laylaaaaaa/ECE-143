@@ -32,7 +32,7 @@ for j in {'IT Jobs','Engineering Jobs','Accounting & Finance Jobs','Healthcare &
 	ctg_slr1.append(av_slr)
 
 ctg_dict1=dict(zip(ctg1,ctg_slr1))
-ctg_dict2=dict(sorted(ctg_dict1.items(), key = lambda x:x[1],reverse = True))
+ctg_dict2=dict(sorted(ctg_dict1.items(), key = lambda x:x[1],reverse = False))
 ctg2=list(ctg_dict2.keys())
 ctg_slr2=list(ctg_dict2.values())
 print(ctg_dict2)
@@ -50,7 +50,7 @@ for j in {'UKStaffsearch','CVbrowser','London4Jobs','Hays','JAM Recruitment Ltd'
 	cpn_slr1.append(av_slr)
 
 cpn_dict1=dict(zip(cpn1,cpn_slr1))
-cpn_dict2=dict(sorted(cpn_dict1.items(), key = lambda x:x[1],reverse = True))
+cpn_dict2=dict(sorted(cpn_dict1.items(), key = lambda x:x[1],reverse = False))
 cpn2=list(cpn_dict2.keys())
 cpn_slr2=list(cpn_dict2.values())
 print(cpn_dict2)
@@ -68,30 +68,9 @@ for j in {'UK','London','South East London','The City','Manchester','Leeds','Bir
 	cpn_slr1.append(av_slr)
 
 cpn_dict1=dict(zip(cpn1,cpn_slr1))
-cpn_dict2=dict(sorted(cpn_dict1.items(), key = lambda x:x[1],reverse = True))
+cpn_dict2=dict(sorted(cpn_dict1.items(), key = lambda x:x[1],reverse = False))
 cpn2=list(cpn_dict2.keys())
 cpn_slr2=list(cpn_dict2.values())
 print(cpn_dict2)
 print(cpn2)
 print(cpn_slr2)
-
-width=0.7
-plt.barh(ctg2,ctg_slr2,width,color='gb',align='center',alpha=0.4)
-plt.xlabel('Average Salary')
-plt.ylabel('Category')
-plt.title('Average Salary per Category')
-plt.show()
-
-width=0.7
-plt.barh(cpn2,cpn_slr2,width,color='gb',align='center',alpha=0.4)
-plt.xlabel('Average Salary')
-plt.ylabel('Company')
-plt.title('Average Salary per Company')
-plt.show()
-
-width=0.7
-plt.barh(lct2,cpn_slr2,width,color='gb',align='center',alpha=0.4)
-plt.xlabel('Average Salary')
-plt.ylabel('Location')
-plt.title('Average Salary per Location')
-plt.show()
