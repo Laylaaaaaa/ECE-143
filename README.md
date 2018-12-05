@@ -12,6 +12,10 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
     - wordcloud
     - seaborn
     - pandas
+    - csv
+    - matplotlib
+    - Numpy
+    - BaseMap
 2.
     
 # Functions and code descriptions:
