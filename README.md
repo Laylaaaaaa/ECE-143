@@ -30,6 +30,21 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
     Generate UK map and color map by number of job of locations.
     Should install csv, matplotlib, Numpy and BaseMap in Python.
   
+- color_map_Engineer.py:<br>
+    Read data from Train_rev1.csv and count number of Engineer job of locations.
+    Generate UK map and color map by number of Engineer job of locations.
+    Should install csv, matplotlib, Numpy and BaseMap in Python.
+  
+- color_map_IT.py.py:<br>
+    Read data from Train_rev1.csv and count number of IT job of locations.
+    Generate UK map and color map by number of IT job of locations.
+    Should install csv, matplotlib, Numpy and BaseMap in Python.
+        
+- color_map_Finance.py:<br>
+    Read data from Train_rev1.csv and count number of Finance job of locations.
+    Generate UK map and color map by number of Finance job of locations.
+    Should install csv, matplotlib, Numpy and BaseMap in Python.
+    
 - Result Map.html:<br>
     It is based on Google map API and generates a dynamic map about job information of a location.
     Information includes average salary, the most common job category and the number of jobs of a location.
