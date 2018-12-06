@@ -7,15 +7,15 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
 # Requirements
 1. Packages
    - Please install following packages:
-    - plotly
-    - pyecharts
-    - wordcloud
-    - seaborn
-    - pandas
-    - csv
-    - matplotlib
-    - Numpy
-    - BaseMap
+     - plotly
+     - pyecharts
+     - wordcloud
+     - seaborn
+     - pandas
+     - csv
+     - matplotlib
+     - Numpy
+     - BaseMap
 2.
     
 # Functions and code descriptions:
