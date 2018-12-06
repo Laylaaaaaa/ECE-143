@@ -4,6 +4,7 @@ from mpl_toolkits.basemap import Basemap
 from matplotlib.patches import Polygon
 from matplotlib.colors import rgb2hex
 import numpy as np
+from PIL import Image
 
 def averagenum(num):
     '''calculate the average value of a list'''
@@ -12,28 +13,14 @@ def averagenum(num):
         nsum += num[i]
     return nsum / len(num)
 
-def readData():
-    '''Read data from Train_rev1.csv and classify salary by location.
-    generate location-salary dict
-    '''
-    file_name = 'Train_rev1.csv'
-    location_dict = {}
-    with open(file_name, encoding="ISO-8859-1") as csv_file:
-        csv_reader = csv.reader(csv_file)
-        next(csv_reader)
-        for data in csv_reader:
-            if data[0] == '':
-                break
-            if data[8] == 'IT Jobs':
-                if data[4] in location_dict.keys():
-                    location_dict[data[4]].append(int(data[10]))
-                else:
-                    location_dict[data[4]] = [int(data[10])]
-    csv_file.close()
-    location_dict['Greater London'] = location_dict['South East London'] + location_dict['The City'] +location_dict['London']+ location_dict['Central London']
-    return location_dict
-
-def colorMap(location):
+def bar():
+    plt.figure(figsize=(16, 8))
+    img = Image.open('bar.png') 
+    plt.imshow(img)
+    plt.axis('off')
+    plt.show() 
+    
+def colorMap(location, jobTitle):
     '''generate UK map and color map by average salary of locations'''
     plt.figure(figsize=(16, 8))
     m = Basemap(resolution='c',  # c, l, i, h, f or None
@@ -67,10 +54,35 @@ def colorMap(location):
 
     ax = plt.gca()
     for nshape, seg in enumerate(newState):
-        # print(seg)
         color = rgb2hex(colors[newCity[nshape]])
         poly = Polygon(seg, facecolor=color, edgecolor=color)
         ax.add_patch(poly)
+    plt.title(jobTitle,fontsize='large',fontweight='bold')
     plt.show()
 
-colorMap(readData())
+def readData(jobTitle):
+    '''Read data from Train_rev1.csv and classify salary by location.
+    generate location-salary dict
+    '''
+    file_name = 'Train_rev1.csv'
+    location_dict = {}
+    with open(file_name, encoding="ISO-8859-1") as csv_file:
+        csv_reader = csv.reader(csv_file)
+        next(csv_reader)
+        for data in csv_reader:
+            if data[0] == '':
+                break
+            if data[8] == jobTitle:
+                if data[4] in location_dict.keys():
+                    location_dict[data[4]].append(int(data[10]))
+                else:
+                    location_dict[data[4]] = [int(data[10])]
+    csv_file.close()
+    location_dict['Greater London'] = location_dict['South East London'] + location_dict['The City'] +location_dict['London']+ location_dict['Central London']
+    return location_dict
+
+
+colorMap(readData('IT Jobs'),'Average salary of IT Jobs')
+colorMap(readData('Engineering Jobs'),'Average salary of Engineering Jobs')
+colorMap(readData('Accounting & Finance Jobs'),'Average salary of Accounting & Finance Jobs')
+bar()
