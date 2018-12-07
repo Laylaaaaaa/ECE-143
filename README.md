@@ -1,6 +1,7 @@
 # Description
 This is UCSD ECE143 final project created by Group 3.<br>
 We used the Kaggle [Job Salary Prediction](https://www.kaggle.com/c/job-salary-prediction/data) dataset and applied what we learn during the class.
+
 # Database
 The dataset contains over 200,000 data points with features: Id, Title, FullDescription, LocationRaw, LocationNormalized, ContractType, ContractTime, Company, Category and SourceName.
 
@@ -17,8 +18,14 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
      - Numpy
      - BaseMap
      - Image
-2.
-    
+2. Juypter Notebook
+
+# Quick Start
+- If you want to quickly get an overview about what we have done in this project, you can open **ECE_143_Project.ipynb** directly to see  our result or just look at our **ECE_143_Prensentation Slides.pptx**.
+- If you really want to know how do we run the code, you can download the dataset and the folder **ECE_143_Jupyter**. Put all of them together and run on Juypter Notebook.
+- If you still want to dig a little more about our code, we'll recommend you to look at **Functions and code descriptions** below 
+. It's including descriptions of all the funcitons and analysis and the functions are in the folder **Function Code**
+
 # Functions and code descriptions:
   
 - color_map_AverageSalary.py:<br>
@@ -58,3 +65,6 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
 - plot_AverageSalary_company.py<br>
     Plot bar chart with average salary for each company.
     Should install matplotlib, seaborn.
+    
+- self_defined_function.py<br>
+     Plot the line chart, box plot, top 20 categories in the demonstration of **ECE_143_Project.ipynb**
