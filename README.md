@@ -22,17 +22,17 @@ The dataset contains over 200,000 data points with features: Id, Title, FullDesc
 # Functions and code descriptions:
   
 - color_map_AverageSalary.py:<br>
-    Read data from "Train_rev1.csv" and classify salary by locations.
+    Read data from "Train_rev1.csv" and classify salary by locations and read classification of UK city from gadm36_GBR_3.
     Generate UK map and color this map by average salary of locations.
     Should install csv, matplotlib, Numpy and BaseMap in Python.
 
 - color_map_NumOfJob.py:<br>
-    Read data from Train_rev1.csv and count number of job of locations.
+    Read data from Train_rev1.csv and count number of job of locations and read classification of UK city from gadm36_GBR_3.
     Generate UK map and color map by number of job of locations.
     Should install csv, matplotlib, Numpy and BaseMap in Python.
   
 - color_map_JObCategory.py:<br>
-    Read data from Train_rev1.csv and count number of IT, Engineer and Finance job of locations.
+    Read data from Train_rev1.csv and count number of IT, Engineer and Finance job of locations and read classification of UK city from gadm36_GBR_3.
     Generate UK map and color map by number of Engineer job of locations.
     Should install csv, matplotlib, Numpy, Image and BaseMap in Python.
     
